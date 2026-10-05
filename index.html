@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Online Member User ID Registration</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <div class="topbar">Social Security System</div>
+  <main class="card">
+    <h1>Online Member User ID Registration</h1>
+    <p class="intro">Enter your details as reported to the Social Security System. Fields marked <span class="req">*</span> are required.</p>
+
+    <form id="regForm" novalidate>
+
+      <fieldset>
+        <legend>Account details</legend>
+
+        <div class="field">
+          <label for="crn">CRN / SS number <span class="req">*</span></label>
+          <input id="crn" name="crn" type="text" inputmode="numeric" autocomplete="off" placeholder="10 or 12 digits" required>
+          <p class="error"></p>
+        </div>
+
+        <div class="field">
+          <label for="email">Email address <span class="req">*</span></label>
+          <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+          <p class="hint">Not using Yahoo? Ask your network administrator not to block mail from sss.gov.ph.</p>
+          <p class="error"></p>
+        </div>
+
+        <div class="field">
+          <label for="email2">Confirm email address <span class="req">*</span></label>
+          <input id="email2" name="email2" type="email" autocomplete="off" required>
+          <p class="error"></p>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Choose a user ID</legend>
+
+        <div class="field">
+          <label for="uid">Preferred user ID <span class="req">*</span></label>
+          <input id="uid" name="uid" type="text" autocomplete="username" placeholder="Juan_Cruz1234" required>
+          <ul class="rules" id="uidRules">
+            <li data-rule="length">8–20 characters</li>
+            <li data-rule="start">Starts with a letter</li>
+            <li data-rule="chars">Letters, numbers and underscore only</li>
+          </ul>
+          <p class="error"></p>
+        </div>
+
+        <div class="field">
+          <label for="uid2">Confirm user ID <span class="req">*</span></label>
+          <input id="uid2" name="uid2" type="text" autocomplete="off" required>
+          <p class="error"></p>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Personal information</legend>
+
+        <div class="row">
+          <div class="field">
+            <label for="last">Last name <span class="req">*</span></label>
+            <input id="last" name="last" type="text" autocomplete="family-name" required>
+            <p class="error"></p>
+          </div>
+          <div class="field">
+            <label for="first">Given name <span class="req">*</span></label>
+            <input id="first" name="first" type="text" autocomplete="given-name" required>
+            <p class="error"></p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <label for="middle">Middle name</label>
+            <input id="middle" name="middle" type="text" autocomplete="additional-name">
+          </div>
+          <div class="field">
+            <label for="dob">Date of birth <span class="req">*</span></label>
+            <input id="dob" name="dob" type="date" autocomplete="bday" required>
+            <p class="error"></p>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Mailing address (Philippines)</legend>
+
+        <div class="area">
+          <label><input type="radio" name="area" id="metro" value="metro" checked> Metro Manila</label>
+          <label><input type="radio" name="area" id="province" value="province"> Province</label>
+        </div>
+
+        <div class="field">
+          <label for="unit">Room / floor / unit no. &amp; building name</label>
+          <input id="unit" name="unit" type="text" autocomplete="address-line2">
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <label for="house">House / lot &amp; block no.</label>
+            <input id="house" name="house" type="text" autocomplete="address-line1">
+          </div>
+          <div class="field">
+            <label for="street">Street</label>
+            <input id="street" name="street" type="text" autocomplete="street-address">
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="subdivision">Subdivision</label>
+          <input id="subdivision" name="subdivision" type="text">
+        </div>
+
+        <div class="row" id="provinceFields" hidden>
+          <div class="field">
+            <label for="provName">Province <span class="req">*</span></label>
+            <input id="provName" name="provName" type="text">
+            <p class="error"></p>
+          </div>
+          <div class="field">
+            <label for="city">City / municipality <span class="req">*</span></label>
+            <input id="city" name="city" type="text">
+            <p class="error"></p>
+          </div>
+        </div>
+      </fieldset>
+
+      <button type="submit">Create account</button>
+      <p class="success" id="success" role="status" hidden>Your details are valid and ready to submit.</p>
+    </form>
+  </main>
+
+  <script src="index.js"></script>
+</body>
+</html>
